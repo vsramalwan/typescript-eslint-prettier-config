@@ -1,4 +1,6 @@
 {
+  "name": "Common Typescript, Eslint and Prettier Configuration",
+  "version": "1.0.0",
   "devDependencies": {
     "typescript": "^4.4.4"
   }
