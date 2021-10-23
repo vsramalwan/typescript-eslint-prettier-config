@@ -1,0 +1,2 @@
+# This way you can run prettier --write . to make sure that everything is formatted (without mangling files you don’t want, or choking on generated files). 
+# And – your editor will know which files not to format!
