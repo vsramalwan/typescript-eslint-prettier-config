@@ -12,6 +12,41 @@ or
 ```bash
 yarn add typescript-eslint-prettier-config
 ```
+
+## How to use this package
+1. To extend your existing Typescript configuration
+<details><summary><strong>click to see example</strong></summary>
+<p>
+
+-   `**/tsconfig.json`:
+
+```json
+{
+    "extends": "**/node_modules/typescript-eslint-prettier-config/tsconfig.json",
+    "compilerOptions": {
+        ...
+    },
+    "exclude": ["**/node_modules/**", "build/**", "dist/**"],
+    "include": ["src"]
+}
+```
+
+2. To extend your existing ESLint configuration
+<details><summary><strong>click to see example</strong></summary>
+<p>
+
+-   `**/.eslintrc`:
+
+```json
+{
+    "root": true,
+    "extends": "**/node_modules/typescript-eslint-prettier-config/.eslintrc",
+    "parserOptions": {
+        "project": ["./tsconfig.json"] // this is your typescript configuration that you extended in the previous step
+    }
+}
+```
+
 ## Further ideas to use the setup optimally
 ### VSCode
 `eslint --fix` can be configured in the settings.json file in VSCode to automatically fix the linting errors.
