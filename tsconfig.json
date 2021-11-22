@@ -1,26 +1,26 @@
 {
     "compilerOptions": {
+        "esModuleInterop": true,
+        "exactOptionalPropertyTypes": true,
+        "forceConsistentCasingInFileNames": true,
         "incremental": true,
-        "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
-        "sourceMap": true,
-        "outDir": "dist",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
+        "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
-        "strictPropertyInitialization": true,
-        "useUnknownInCatchVariables": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "exactOptionalPropertyTypes": true,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitOverride": true,
-        "noPropertyAccessFromIndexSignature": true,
-        "skipLibCheck": true
+        "outDir": "dist",
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "strictPropertyInitialization": true,
+        "target": "es6",
+        "useUnknownInCatchVariables": true
     },
-    "include": ["src"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "include": ["src"]
 }
