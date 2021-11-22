@@ -16,9 +16,8 @@ yarn add typescript-eslint-prettier-config
 ## How to use this package
 1. To extend your existing Typescript configuration
 <details><summary><strong>click to see example</strong></summary>
-<p>
 
--   `**/tsconfig.json`:
+- `**/tsconfig.json`:
 
 ```json
 {
@@ -30,12 +29,13 @@ yarn add typescript-eslint-prettier-config
     "include": ["src"]
 }
 ```
+</details>
 
 2. To extend your existing ESLint configuration
-<details><summary><strong>click to see example</strong></summary>
-<p>
 
--   `**/.eslintrc`:
+<details><summary><strong>click to see example</strong></summary>
+
+- `**/.eslintrc`:
 
 ```json
 {
@@ -46,6 +46,7 @@ yarn add typescript-eslint-prettier-config
     }
 }
 ```
+</details>
 
 ## Further ideas to use the setup optimally
 ### VSCode
