@@ -1,6 +1,6 @@
 {
     "name": "typescript-eslint-prettier-config",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "scripts": {
         "dev": "tsc --watch",
         "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
