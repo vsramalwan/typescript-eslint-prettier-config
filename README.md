@@ -57,12 +57,13 @@ module.exports = {
 
 ## Further ideas to use the setup optimally
 ### VSCode
-`eslint --fix` can be configured in the settings.json file in VSCode to automatically fix the linting errors.
+`eslint --fix` can be configured in the settings.json file in VSCode to automatically fix the linting errors. Also, adding `formatOnSave` runs Prettier every time you save.
 ```json
 {
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.formatOnSave": true
 }
 ```
 ### Lint staging
@@ -85,3 +86,5 @@ module.exports = {
 - [eslint-prettier-typescript-config](https://github.com/moia-oss/eslint-prettier-typescript-config)
 - [Using ESLint and Prettier in a TypeScript Project](https://robertcooper.me/post/using-eslint-and-prettier-in-a-typescript-project)
 - [How to use Prettier with ESLint and TypeScript in VSCode](https://khalilstemmler.com/blogs/tooling/prettier/)
+- [Enforcing Coding Conventions with Husky Pre-commit Hooks](https://khalilstemmler.com/blogs/tooling/enforcing-husky-precommit-hooks/)
+- [How to use ESLint with TypeScript](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/)
