@@ -6,11 +6,13 @@ ESLint and Prettier configurations are pretty standard in Javascript world. The 
 ## Installation
 To install:
 ```bash
-npm i typescript-eslint-prettier-config
+npm i -D typescript eslint prettier
+npm i -D typescript-eslint-prettier-config
 ```
 or 
-```bash
-yarn add typescript-eslint-prettier-config
+```bash\
+yarn add -D typescript eslint prettier
+yarn add -D typescript-eslint-prettier-config
 ```
 
 ## How to use this package
@@ -45,6 +47,19 @@ yarn add typescript-eslint-prettier-config
         "project": ["./tsconfig.json"] // this is your typescript configuration that you extended in the previous step
     }
 }
+```
+</details>
+
+3. To extend your existing Prettier configuration
+
+<details><summary><strong>click to see example</strong></summary>
+
+- `**/.prettierrc.ts`:
+
+```ts
+module.exports = {
+    ...require('**/node_modules/typescript-eslint-prettier-config/prettier.config'),
+};
 ```
 </details>
 
