@@ -1,12 +1,17 @@
 {
   "name": "typescript-eslint-prettier-config",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "dev": "tsc --watch",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
-  "keywords": ["eslint", "prettier", "tsconfig", "typescript"],
+  "keywords": [
+    "eslint",
+    "prettier",
+    "tsconfig",
+    "typescript"
+  ],
   "devDependencies": {
     "@types/node": "^16.11.9",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
