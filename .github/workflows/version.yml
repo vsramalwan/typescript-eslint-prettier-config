@@ -7,7 +7,7 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
-    if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+    if: "startsWith(github.event.head_commit.message, 'chore(deps): update all 🚀') || contains(github.event.head_commit.message, 'chore/update-dependencies')"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
