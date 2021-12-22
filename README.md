@@ -1,3 +1,4 @@
+[![npm version][https://img.shields.io/npm/v/typescript-eslint-prettier-config]][https://www.npmjs.com/package/typescript-eslint-prettier-config]
 [![format](https://github.com/vsramalwan/typescript-eslint-prettier-config/actions/workflows/format.yml/badge.svg?branch=main)](https://github.com/vsramalwan/typescript-eslint-prettier-config/actions/workflows/format.yml)
 [![lint](https://github.com/vsramalwan/typescript-eslint-prettier-config/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/vsramalwan/typescript-eslint-prettier-config/actions/workflows/lint.yml)
 # typescript-eslint-prettier-config
