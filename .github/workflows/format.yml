@@ -19,4 +19,4 @@ jobs:
       - name: Run Prettier(format)
         run: |
           yarn install
-          yarn format
+          yarn format:check
