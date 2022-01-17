@@ -20,7 +20,7 @@ jobs:
       - name: Increment version
         run: |
           npm --no-git-tag-version version patch
-          NPM_PACKAGE_VERSION=$(npm --silent run node -- --print process.env.npm_package_version)
+          NPM_PACKAGE_VERSION=$(jq --raw-output .version package.json)
           git add package.json
           git commit -m "[RELEASE] $NPM_PACKAGE_VERSION"
           git push
