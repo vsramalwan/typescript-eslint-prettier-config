@@ -4,11 +4,17 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ["format", "lint"]
+    types:
+      - completed
+    branches:
+      - main
 
 jobs:
-  deploy:
+  version:
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
+    if: "startsWith(github.event.head_commit.message, 'chore(deps): update all 🚀') || contains(github.event.head_commit.message, 'chore/update-dependencies')"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,6 +26,38 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install
-      - run: npm publish
+      - name: Setup Github config credentials
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+      - name: Increment version
+        run: |
+          npm --no-git-tag-version version patch
+          NPM_PACKAGE_VERSION=$(jq --raw-output .version package.json)
+          git add package.json
+          git commit -m "[RELEASE] $NPM_PACKAGE_VERSION"
+          git push
+  
+  deploy:
+    needs: version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn install
+      - name: Publish dry run
+        run: npm publish --dry-run
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
+      - name: Publish
+        if: {{ success() }}
+        run: npm publish
+        env:
+          token: ${{ secrets.NPM_TOKEN }}
