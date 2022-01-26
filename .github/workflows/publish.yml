@@ -57,7 +57,7 @@ jobs:
         env:
           token: ${{ secrets.NPM_TOKEN }}
       - name: Publish
-        if: {{ success() }}
+        if: ${{ success() }}
         run: npm publish
         env:
           token: ${{ secrets.NPM_TOKEN }}
