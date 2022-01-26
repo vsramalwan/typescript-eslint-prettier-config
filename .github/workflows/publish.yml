@@ -8,6 +8,8 @@ on:
     workflows: ["format", "lint"]
     types:
       - completed
+    branches:
+      - main
 
 jobs:
   version:
