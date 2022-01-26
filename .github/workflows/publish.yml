@@ -50,7 +50,12 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install
+      - name: Publish dry run
+        run: npm publish --dry-run
+        env:
+          token: ${{ secrets.NPM_TOKEN }}
       - name: Publish
+        if: {{ success() }}
         run: npm publish
         env:
           token: ${{ secrets.NPM_TOKEN }}
