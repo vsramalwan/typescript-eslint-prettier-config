@@ -83,10 +83,7 @@ module.exports = {
       ],
       "*.{js,jsx,ts,tsx,json,yml,yaml,css,html}": [
           "prettier --write"
-      ],
-      "*.{ts,tsx}": [
-          "tsc --noEmit"
-      ],
+      ]
   }
 }
 ```
