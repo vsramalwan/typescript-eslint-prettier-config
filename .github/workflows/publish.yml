@@ -20,11 +20,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
       - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - run: yarn install
       - name: Setup Github config credentials
         run: |
@@ -37,7 +38,7 @@ jobs:
           git add package.json
           git commit -m "[RELEASE] $NPM_PACKAGE_VERSION"
           git push
-  
+
   deploy:
     needs: version
     runs-on: ubuntu-latest
@@ -46,11 +47,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
       - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - run: yarn install
       - name: Publish dry run
         run: npm publish --dry-run

@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
       - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
@@ -40,8 +41,8 @@ jobs:
       - name: Create Pull Request
         with:
           committer: GitHub Actions <actions@github.com>
-          commit-message: 'chore(deps): update all 🚀'
-          title: 'chore(deps): update all 🚀'
+          commit-message: "chore(deps): update all 🚀"
+          title: "chore(deps): update all 🚀"
           author: GitHub Actions <actions@github.com>
           branch: chore/update-dependencies
           branch-suffix: timestamp
