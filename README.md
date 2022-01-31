@@ -62,7 +62,8 @@ module.exports = {
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
   },
   "editor.formatOnSave": true
 }
@@ -77,9 +78,15 @@ module.exports = {
       }
   },
   "lint-staged": {
-      "*.{js,ts,tsx}": [
+      "*.{js,jsx,ts,tsx}": [
           "eslint --fix"
-      ]
+      ],
+      "*.{js,jsx,ts,tsx,json,yml,yaml,css,html}": [
+          "prettier --write"
+      ],
+      "*.{ts,tsx}": [
+          "tsc --noEmit"
+      ],
   }
 }
 ```
