@@ -48,7 +48,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: main
-      # The following step creates an .npmrc file on the runner with following contents:
+      # The following step creates a .npmrc file on the runner with following contents:
       # //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
       # registry=https://registry.npmjs.org/
       # always-auth=true
@@ -71,7 +71,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: main
-      # The following step creates an .npmrc file on the runner with following contents:
+      # The following step creates a .npmrc file on the runner with following contents:
       # //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
       # registry=https://npm.pkg.github.com/
       # always-auth=true
