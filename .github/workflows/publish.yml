@@ -17,7 +17,7 @@ jobs:
     if: "startsWith(github.event.head_commit.message, 'chore(deps): update all 🚀') || contains(github.event.head_commit.message, 'chore/update-dependencies')"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: main
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: main
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: main
