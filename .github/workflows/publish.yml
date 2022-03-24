@@ -31,13 +31,9 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-      - name: Increment version
-        run: |
-          npm --no-git-tag-version version patch
-          NPM_PACKAGE_VERSION=$(jq --raw-output .version package.json)
-          git add package.json
-          git commit -m "[RELEASE] $NPM_PACKAGE_VERSION"
-          git push
+      
+      - run: yarn release
+      - run: git push --follow-tags
 
   npm-publish:
     needs: version
