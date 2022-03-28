@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Run Prettier(format)
+      - name: Run Format (Prettier)
         run: |
           yarn install
           yarn format:check

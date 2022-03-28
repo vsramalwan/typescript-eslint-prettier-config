@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Run Linter(ESLint)
+      - name: Run Linter (ESLint)
         run: |
           yarn install
           yarn lint
