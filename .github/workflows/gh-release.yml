@@ -1,0 +1,34 @@
+name: gh-release
+
+on: 
+  push:
+    tags:
+    - '*'
+
+jobs:
+  github-release:
+    needs: release
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
+      # The following step creates a .npmrc file on the runner with following contents:
+      # //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+      # registry=https://npm.pkg.github.com/
+      # always-auth=true
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: "https://npm.pkg.github.com"
+          always-auth: true
+      - run: yarn install
+      - run: yarn publish --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
