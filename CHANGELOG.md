@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.11 (2022-04-11)
+
+
+### Bug Fixes
+
+* **CI:** GH Release ([#66](https://github.com/vsramalwan/typescript-eslint-prettier-config/issues/66)) ([de839a9](https://github.com/vsramalwan/typescript-eslint-prettier-config/commit/de839a948752ab1c72aae1fac2c24cac6053bf7b))
+
 ### 1.2.10 (2022-04-11)
 
 ### 1.2.9 (2022-04-11)
