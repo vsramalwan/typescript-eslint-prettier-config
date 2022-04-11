@@ -44,6 +44,6 @@
     }
   },
   "standard-version": {
-    "releaseCommitMessageFormat": "chore(release): {{currentTag}}"
+    "releaseCommitMessageFormat": "chore(release): {{currentTag}}\n[ci skip]"
   }
 }
