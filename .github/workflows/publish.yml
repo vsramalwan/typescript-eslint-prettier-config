@@ -14,7 +14,9 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'chore(release)') && !contains(github.event.head_commit.message, '[release skip]')"
+    outputs:
+      VERSION: ${{ steps.version.outputs.VERSION }}
+    if: "!contains(github.event.head_commit.message, 'chore(release)') || !contains(github.event.head_commit.message, '[release skip]')"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.4.0
@@ -34,6 +36,10 @@ jobs:
       
       - run: yarn release
       - run: git push --follow-tags
+      - id: version
+        run: |
+          VERSION=$(jq --raw-output .version package.json)
+          echo "::set-output name=VERSION::${VERSION}"
 
   npm-publish:
     needs: release
@@ -54,13 +60,18 @@ jobs:
           node-version: 14
           registry-url: "https://registry.npmjs.org"
       - run: yarn install
-      - run: yarn publish
+      - run: yarn publish --new-version ${{ needs.release.outputs.VERSION }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - if: failure()
+        run: git push --delete origin ${{ needs.release.outputs.VERSION }}
 
   github-release:
     needs: release
     runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.4.0
@@ -77,6 +88,6 @@ jobs:
           node-version: 14
           registry-url: "https://npm.pkg.github.com"
       - run: yarn install
-      - run: yarn publish
+      - run: yarn publish --new-version ${{ needs.release.outputs.VERSION }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
