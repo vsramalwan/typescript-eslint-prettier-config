@@ -60,7 +60,7 @@ jobs:
           node-version: 14
           registry-url: "https://registry.npmjs.org"
       - run: yarn install
-      - run: yarn publish
+      - run: yarn publish --new-version ${{ needs.release.outputs.VERSION }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: failure()
@@ -69,6 +69,9 @@ jobs:
   github-release:
     needs: release
     runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.4.0
@@ -84,8 +87,7 @@ jobs:
         with:
           node-version: 14
           registry-url: "https://npm.pkg.github.com"
-          always-auth: true
       - run: yarn install
-      - run: yarn publish
+      - run: yarn publish --new-version ${{ needs.release.outputs.VERSION }} --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
