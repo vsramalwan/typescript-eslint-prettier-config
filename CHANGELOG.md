@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.3.0 (2022-04-11)
+
+
+### Features
+
+* **CI:** Seperate Workflow GH release ([#67](https://github.com/vsramalwan/typescript-eslint-prettier-config/issues/67)) ([67d9ba5](https://github.com/vsramalwan/typescript-eslint-prettier-config/commit/67d9ba5076bcb2042d70dc581afa0fa0defd659f))
+
 ### 1.2.12 (2022-04-11)
 
 ### 1.2.11 (2022-04-11)
