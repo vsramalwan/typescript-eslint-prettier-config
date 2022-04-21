@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       VERSION: ${{ steps.version.outputs.VERSION }}
-    if: "contains(github.ref, 'main') && !contains(github.event.head_commit.message, 'chore(release)') || !contains(github.event.head_commit.message, '[release skip]')"
+    if: "contains(github.ref, 'main') && !contains(github.event.head_commit.message, 'chore(release)') && !contains(github.event.head_commit.message, '[release skip]')"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.4.0
