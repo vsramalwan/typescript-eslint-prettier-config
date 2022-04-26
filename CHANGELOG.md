@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.3.6 (2022-04-26)
+
+
+### Bug Fixes
+
+* mutiple release commits ([769cd0e](https://github.com/vsramalwan/typescript-eslint-prettier-config/commit/769cd0ee85cafe6c20328640f60de770e1b495bb))
+
 ### 1.3.5 (2022-04-25)
 
 ### 1.3.4 (2022-04-25)
